@@ -1,1 +1,9 @@
 <h1>Hello</h1>
+<%= link_to "Sign in with FaceBook", "auth/facebook" %><br>
+<%= link_to "Create listing", "listings/new" %><br>
+
+
+<h2>Listing</h2>
+<% Listing.all.each do |x| %>
+	<%= link_to x.title, listing_path(x.id) %><br>
+<% end %>
