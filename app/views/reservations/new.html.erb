@@ -1,0 +1,15 @@
+<h1>Booking</h1>
+
+<%= form_for @booking do |z| %>
+	<%= z.hidden_field :listing_id, value: params[:listing_id] %>
+	
+	<%= z.hidden_field :user_id, value: current_user.id %>
+
+	<%= z.label :start_date, "check-in date" %>
+	<%= z.text_field :start_date, :class => 'datepicker' %><br>
+
+	<%= z.label :end_date, "check-out date" %>
+	<%= z.text_field :end_date, :class => 'datepicker'  %><br>
+
+	<%= submit_tag("Book") %>
+<% end %>

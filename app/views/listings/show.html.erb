@@ -17,3 +17,9 @@ Address: <%= @listing.address %><br>
 Country: <%= @listing.country %><br>
 
 City: <%= @listing.city %><br>
+
+<% @listing.photo.each do |pic|%>
+	<%= image_tag pic %>
+<% end %>
+
+<%= link_to "Book now", "reservations/new?listing_id=#{@listing.id}" %>

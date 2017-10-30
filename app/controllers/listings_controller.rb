@@ -12,11 +12,12 @@ class ListingsController < ApplicationController
 
 	 def show
 	 	@listing = Listing.find(params[:id])
+	 	@listing_id = @listing.id
 	 end
 
 
 	 private
 	 def listing_params
-	      params.require(:listing).permit(:user_id, :title, :property_type, :address, :city, :country, :no_of_bed, :no_of_bathroom, :max_guest, :price, :description)
+	      params.require(:listing).permit(:user_id, :title, :property_type, :address, :city, :country, :no_of_bed, :no_of_bathroom, :max_guest, :price, :description, {photo: []})
 	 end
 end

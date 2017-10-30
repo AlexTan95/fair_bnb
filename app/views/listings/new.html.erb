@@ -2,37 +2,44 @@
 
 <%= form_for @new_listing do |f| %>
 
-	<%= f.hidden_field :user_id, value: current_user.id %>
+	<% f.hidden_field :user_id, value: current_user.id %>
 	
 	<%= f.label :title %>
-	<%= f.text_field :title %><br>
+	<%= f.text_field :title, :required => 'required' %><br>
 
 	<%= f.label :property_type %>
-	<%= f.text_field :property_type %><br>
+	<%= f.text_field :property_type, :required => 'required' %><br>
 
 	<%= f.label :address %>
-	<%= f.text_field :address %><br>
+	<%= f.text_field :address, :required => 'required' %><br>
 
 	<%= f.label :city %>
-	<%= f.text_field :city %><br>
+	<%= f.text_field :city, :required => 'required' %><br>
 
 	<%= f.label :country %>
-	<%= f.text_field :country %><br>
+	<%= f.text_field :country, :required => 'required' %><br>
+
+	<!-- {min: 0} sets the minimum number available to 0 and prevent negative value from being entered -->
+	<!-- {step: '3'} force the value entered to be mutiple of 3 for the up/down button -->
 
 	<%= f.label :no_of_bed %>
-	<%= f.number_field :no_of_bed %><br>
+	<%= f.number_field :no_of_bed, min: 0, :required => 'required' %><br>
 
 	<%= f.label :no_of_bathroom %>
-	<%= f.number_field :no_of_bathroom %><br>
+	<%= f.number_field :no_of_bathroom, min: 0, :required => 'required' %><br>
 
 	<%= f.label :max_guest, "number of guest" %>
-	<%= f.number_field :max_guest %><br>
+	<%= f.number_field :max_guest, min: 0, :required => 'required' %><br>
 
 	<%= f.label :price %>
-	<%= f.number_field :price %><br>
+	<%= f.number_field :price, min: 0, :required => 'required' %><br>
 
 	<%= f.label :description %>
-	<%= f.text_field :description %><br>
+	<%= f.text_field :description, :required => 'required' %><br>
+
+	<%= f.label :photo, "Photo" %>
+	<%= f.file_field :photo, multiple: true, :required => 'required' %><br>
 
 	<%= submit_tag("Create listing") %>
+
 <% end %>

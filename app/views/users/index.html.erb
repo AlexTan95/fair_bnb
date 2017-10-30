@@ -4,6 +4,8 @@
 
 
 <h2>Listing</h2>
-<% Listing.all.each do |x| %>
-	<%= link_to x.title, listing_path(x.id) %><br>
+<% @listing.each do |x| %>
+	<%= link_to x.title, listing_path(x.id) %><%= x.price %><br>	
 <% end %>
+
+<%= paginate @listing %>
